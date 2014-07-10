@@ -1,0 +1,7 @@
+[diff]
+    external = git_diff_wrapper
+[pager]
+    diff =
+[user]
+	name = ruanyl
+	email = ruanyu1@gmail.com
