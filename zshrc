@@ -74,6 +74,8 @@ export LANG=en_US.UTF-8
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 if [ -f ~/.bash_profile ]; then
     source ~/.bash_profile
+elif [ -f ~/.profile ]; then
+    source ~/.profile
 fi
 
 #if [ -f ~/.incr.zsh ]; then

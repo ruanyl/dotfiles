@@ -17,6 +17,10 @@ if [ "$(uname)" == "Darwin" ]; then
     fi
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
+    ruby -e "$(wget -O- https://raw.github.com/Homebrew/linuxbrew/go/install)"
+    echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >> $HOME/.bashrc
+    echo 'export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH"' >> $HOME/.bashrc
+    source $HOME/.bashrc
 fi
 
 ############# install dependences
@@ -32,7 +36,8 @@ echo "############# install oh-my-zsh #############"
 curl -L http://install.ohmyz.sh | sh
 
 ############# install zsh-syntax-highlighting
-cd $HOME/.oh-my-zsh/plugins git clone https://github.com/zsh-users/zsh-syntax-highlighting zsh-syntax-highlighting
+cd $HOME/.oh-my-zsh/plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting zsh-syntax-highlighting
 
 # Variables
 dir=~/.dotfiles                    # dotfiles directory
@@ -54,5 +59,14 @@ for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/.$file ~/.$file
+    ln -s $dir/$file ~/.$file
 done
+
+######## change login shell
+if [ "$(uname)" == "Darwin" ]; then
+    sudo echo "/usr/local/bin/zsh" >> /etc/shells
+    sudo chsh -s /usr/local/bin/zsh
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    sudo echo  $HOME/.linuxbrew/bin/zsh >> /etc/shells
+    sudo chsh -s $HOME/.linuxbrew/bin/zsh
+fi
