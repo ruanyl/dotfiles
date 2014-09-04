@@ -5,20 +5,18 @@
 CURRENT_DIR=`pwd`
 BASEDIR=$(dirname $0)
 
-############# check requirements
-REQUIRE="ruby git"
-for i in $REQUIRE
-do
-    command -v $i >/dev/null && continue || { echo "$i command not found."; exit 1; }
-done
-
-############# install homebrew
-echo "############# install homebrew #############"
-if command -v brew &>/dev/null
-then
-    echo "**********homebrew already installed, skip**********"
-else
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+############# install requirements
+if [ "$(uname)" == "Darwin" ]; then
+    ############# install homebrew
+    echo "############# install homebrew #############"
+    if command -v brew &>/dev/null
+    then
+        echo "**********homebrew already installed, skip**********"
+    else
+        ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    fi
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
 fi
 
 ############# install dependences
