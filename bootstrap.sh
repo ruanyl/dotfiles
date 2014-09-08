@@ -62,6 +62,9 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
+# for git_diff_wrapper
+ln -s $dir/git_diff_wrapper /usr/local/bin/git_diff_wrapper
+
 ######## change login shell
 if [ "$(uname)" == "Darwin" ]; then
     sudo echo "/usr/local/bin/zsh" >> /etc/shells

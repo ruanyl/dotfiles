@@ -1,7 +1,7 @@
 [diff]
-        external = git_diff_wrapper
+    external = git_diff_wrapper
 [pager]
-        diff =
+    diff =
 [user]
-	email = ruanyu1@gmail.com
-	name = yulong ruan
+    email = ruanyu1@gmail.com
+    name = yulong ruan
