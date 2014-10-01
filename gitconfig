@@ -3,5 +3,10 @@
 [pager]
     diff =
 [user]
-    email = ruanyu1@gmail.com
-    name = yulong ruan
+	name = ruanyl
+	email = ruanyu1@gmail.com
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --stat
