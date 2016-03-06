@@ -10,6 +10,7 @@
 	smudge = git-media-smudge %f
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --stat
+    db = log --left-right --graph --cherry-pick --no-merges --oneline
 [core]
 	editor = vim
     whitespace = nowarn
