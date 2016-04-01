@@ -13,3 +13,4 @@ brew cask install licecap
 brew cask install iterm2-beta
 brew cask install dockertoolbox
 brew cask install slack
+brew cask install flux
