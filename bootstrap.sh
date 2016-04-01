@@ -33,11 +33,5 @@ source $CURRENT_DIR/installs/install_applications.sh
 source $CURRENT_DIR/installs/install_phpmysql.sh
 
 ######## change login shell
-if [ "$(uname)" == "Darwin" ]; then
-    sudo echo "/usr/local/bin/zsh" >> /etc/shells
-    sudo chsh -s /usr/local/bin/zsh
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    sudo echo  $HOME/.linuxbrew/bin/zsh >> /etc/shells
-    sudo chsh -s $HOME/.linuxbrew/bin/zsh
-fi
-
+sudo echo "/usr/local/bin/zsh" >> /etc/shells
+sudo chsh -s /usr/local/bin/zsh
