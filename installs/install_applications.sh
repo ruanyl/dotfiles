@@ -14,3 +14,5 @@ brew cask install iterm2-beta
 brew cask install dockertoolbox
 brew cask install slack
 brew cask install flux
+brew cask install dash
+brew cask install atom

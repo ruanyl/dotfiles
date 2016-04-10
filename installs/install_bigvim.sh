@@ -4,7 +4,7 @@ echo " ********************************************************"
 
 ####### install bigvim
 echo " >>> start install nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+brew install nvm
 
 echo " >>> start install node"
 nvm install node
