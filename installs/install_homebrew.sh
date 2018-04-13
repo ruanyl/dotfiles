@@ -20,3 +20,4 @@ brew install curl
 brew install zsh
 brew install vim --with-lua
 brew install nvm
+brew install ack
